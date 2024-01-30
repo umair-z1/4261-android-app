@@ -2,6 +2,7 @@ package com.example.mapsapptest
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
@@ -41,11 +42,16 @@ fun SessionScreen(viewModel : AuViewModel) {
             onValueChange = { viewModel.updateDataState(gtuser = it) },
             placeholder = { Text(text = "GT Username") }
         )
-        Button(onClick = viewModel::savedata) {
-            Text("Save")
-        }
-        Button(onClick = viewModel::logOut) {
-            Text("Log Out")
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(10.dp, alignment = Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Button(onClick = viewModel::savedata) {
+                Text("Save")
+            }
+            Button(onClick = viewModel::logOut) {
+                Text("Log Out")
+            }
         }
     }
 }
